@@ -1,5 +1,11 @@
 class CoworkingspacesController < ApplicationController
 before_action :authenticate_user!
+    
+    def inde
+    	if !params[:coworkingfilter].blank?
+    		@coworkingspaces = Coworkingspace.where(:city => params[:coworkingfilter].city)
+    	end	
+    end
 
 	def new
 		@coworkingspace = Coworkingspace.new

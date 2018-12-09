@@ -1,4 +1,5 @@
 class CoworkingfiltersController < ApplicationController
-def index
+def new
+	@coworkingfilter = Coworkingfilter.new
 end	
 end

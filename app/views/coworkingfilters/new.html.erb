@@ -1,0 +1,6 @@
+<%= form_for @coworkingfilter do |f| %>
+<%= f.select(:city, Coworkingspace.all.map{|u| ["#{u.city}", u.city]}, :prompt => 'Select a city') %><br>
+<%= f.date_select :beginDate, start_year: Date.current.year, end_year: Date.current.year %> <br>
+<%= f.date_select :finishDate, start_year: Date.current.year, end_year: Date.current.year %> <br>
+<% end %>
+<%= link_to "Search", coworkingspaces_path(coworkingfilter: @coworkingfilter) %>
