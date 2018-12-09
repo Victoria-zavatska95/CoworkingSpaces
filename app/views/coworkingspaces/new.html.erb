@@ -1,5 +1,21 @@
-<%= form_for @coworking_space, url: coworkingspaces_path do |f| %>
-<%= f.date_field :area %>
-<%= f.text_area :description, size: "60x12"  %>
-<%= f.text_field :price %>
+<%= form_for @coworkingspace, url: coworkingspaces_path do |f| %>
+<p>Location </p>
+City <%= f.text_field :city %>
+Address <%= f.text_field :address %>
+<!-- Available data  -->
+<!-- <hr>
+<%= f.date_select :beginDate, start_year: Date.current.year, end_year: Date.current.year %> <br>
+<hr>
+<%= f.date_select :finishDate, start_year: Date.current.year, end_year: Date.current.year %> <br> -->
+Area in m² <%= f.text_field :area %>
+Description: <%= f.text_area :description, size: "60x12"  %>
+Price: <%= f.text_field :price %>
+How many persons: <%= f.text_field :peopleNumber %>
+Do you have:
+Kitchen  <%= f.check_box :hasKitchen %>
+Meetroom  <%= f.check_box :hasMeetroom %>
+free WiFi  <%= f.check_box :hasFreeWiFi %>
+free coffee, tea, and cookies? <%= f.check_box :hasFreeCookies %>
+Photo: <%= f.file_field :image %><br />
+<%= f.submit "Create" %>
 <% end %>

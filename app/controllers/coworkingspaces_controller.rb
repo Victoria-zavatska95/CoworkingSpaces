@@ -2,21 +2,24 @@ class CoworkingspacesController < ApplicationController
 before_action :authenticate_user!
 
 	def new
-		@coworking_space = CoworkingSpace.new
+		@coworkingspace = Coworkingspace.new
 	end
 
 	def create
-		@coworking_space = current_user.coworkingspaces.build(coworkingspacesparams)
-		if @coworking_space.save
+		@coworkingspace = current_user.coworkingspaces.build(coworkingspacesparams)
+		if @coworkingspace.save
 			flash[:notice] = "You successfully created coworking space"
 			redirect_to root_path
 		else
 		flash[:error] = "Failed to create coworking space"	
-		render "new"	
+		render "new"
+		end	
 	end
 
 	private def coworkingspacesparams
-		params.require(:coworkingparams).permit(:user_id, :price, :area, :description)
+		params.require(:coworkingspace).permit(:user_id, :image, :price, :area, :description, :city, :address, :hasKitchen, :hasMeetroom, :hasFreeWiFi, :hasFreeCookies, :peopleNumber)
     end
 
 end
+
+ 

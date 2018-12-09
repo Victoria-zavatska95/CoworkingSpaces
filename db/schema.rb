@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_203230) do
+ActiveRecord::Schema.define(version: 2018_12_09_183040) do
 
-  create_table "coworking_spaces", force: :cascade do |t|
-    t.integer "user_id"
-    t.float "price"
-    t.float "area"
-    t.string "description"
+  create_table "coworkingspaces", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "description"
+    t.float "price"
+    t.string "city"
+    t.string "address"
+    t.datetime "beginDate"
+    t.datetime "finishDate"
+    t.boolean "hasKitchen"
+    t.boolean "hasMeetroom"
+    t.boolean "hasFreeWiFi"
+    t.boolean "hasFreeCookies"
+    t.integer "peopleNumber"
+    t.float "area"
+    t.string "image"
   end
 
   create_table "users", force: :cascade do |t|
