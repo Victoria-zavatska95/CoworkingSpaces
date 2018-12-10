@@ -1,0 +1,19 @@
+<% if @coworkingspaces == [] %>
+  <p> Based on your parameters no coworking spaces was found. Please change your parameters for search. </p>
+<% else %>
+  <% @coworkingspaces.each do |space| %>
+<p>Location </p>
+City <%= space.city %>
+Address <%= space.address %>
+Area in m² <%= space.area %>
+Description: <%= space.description %>
+Price: <%= space.price %>
+How many persons: <%= space.peopleNumber %>
+Do you have:
+Kitchen  <%= check_box "Monday", space.hasKitchen %>
+Meetroom  <%= check_box "Monday", space.hasMeetroom %>
+free WiFi  <%= check_box "Monday", space.hasFreeWiFi %>
+free coffee, tea, and cookies? <%= check_box "Monday", space.hasFreeCookies %>
+Photo: <%= image_tag(space.image_url, size: "100x100")%></p>
+<% end %>
+<% end %>

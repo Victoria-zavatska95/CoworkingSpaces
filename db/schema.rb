@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_09_195857) do
+ActiveRecord::Schema.define(version: 2018_12_10_060859) do
+
+  create_table "coworking_spaces", force: :cascade do |t|
+    t.integer "user_id"
+    t.float "price"
+    t.float "area"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "coworkingfilters", force: :cascade do |t|
     t.string "city"
@@ -37,6 +46,14 @@ ActiveRecord::Schema.define(version: 2018_12_09_195857) do
     t.integer "peopleNumber"
     t.float "area"
     t.string "image"
+  end
+
+  create_table "suggestionspaces", force: :cascade do |t|
+    t.integer "coworkingspace_id"
+    t.date "beginDate"
+    t.date "finishDate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

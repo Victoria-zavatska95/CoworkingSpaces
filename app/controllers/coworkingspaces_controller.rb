@@ -1,9 +1,22 @@
 class CoworkingspacesController < ApplicationController
 before_action :authenticate_user!
     
-    def inde
-    	if !params[:coworkingfilter].blank?
-    		@coworkingspaces = Coworkingspace.where(:city => params[:coworkingfilter].city)
+    def index
+    	if !params[:city].blank? && !params[:beginDate].blank? && !params[:finishDate].blank?
+    		@coworkingspaces = Coworkingspace.where(city: params[:city])
+    			array_of_valid_spaces = @coworkingspaces.map do |space|
+    				space.suggestions.each do |suggestion|
+			if params[:beginDate] >= space.suggestion.beginDate && params[:finishDate] <= space.suggestion.finishDate
+				 '#{space}'
+				end
+
+		end
+
+
+		if array_of_valid_spaces.any?
+			@coworkingspaces = array_of_valid_spaces
+    	else 
+    	@coworkingspaces = []	
     	end	
     end
 
