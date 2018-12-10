@@ -15,5 +15,6 @@ Meetroom  <%= check_box_tag "Meetroom", space.hasMeetroom %>
 free WiFi  <%= check_box_tag "WiFi", space.hasFreeWiFi %>
 free coffee, tea, and cookies? <%= check_box_tag "Cookies", space.hasFreeCookies %>
 Photo: <%= image_tag(space.image_url, size: "100x100")%></p>
+<%= link_to "Read more", coworkingspace_path(space.id) %>
 <% end %>
 <% end %>

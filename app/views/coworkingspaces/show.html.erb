@@ -1,0 +1,22 @@
+<p>Location </p>
+City <%= @coworkingspace.city %>
+Address <%= @coworkingspace.address %>
+Area in m² <%= @coworkingspace.area %>
+Description: <%= @coworkingspace.description %>
+Price: <%= @coworkingspace.price %>
+How many persons: <%= @coworkingspace.peopleNumber %>
+Do you have:
+Kitchen  <%= check_box_tag 'kitchen', @coworkingspace.hasKitchen %>
+Meetroom  <%= check_box_tag 'Meetroom', @coworkingspace.hasMeetroom %>
+free WiFi  <%= check_box_tag 'wifi', @coworkingspace.hasFreeWiFi %>
+free coffee, tea, and cookies? <%= check_box_tag 'cookies', @coworkingspace.hasFreeCookies %>
+Photo: <%= image_tag(@coworkingspace.image_url, size: "100x100")%></p>
+<% @coworkingspace.suggestionspaces.each do |suggestion| %>
+<p>Begin date <%= suggestion.beginDate %><br>
+Finish date <%= suggestion.finishDate %></p><br><hr>
+ <% end %>
+ <% if current_user.id == @coworkingspace.user_id %>
+<%= link_to "Add available date", new_suggestionspace_path(coworkingspace_id: @coworkingspace.id)%>
+<% else %> 
+<%= link_to "Order", new_orderspace_path(coworkingspace_id: @coworkingspace.id)%>
+<% end %>

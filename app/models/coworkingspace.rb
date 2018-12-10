@@ -1,5 +1,6 @@
 class Coworkingspace < ApplicationRecord
 		mount_uploader :image, PhotoUploader
 		belongs_to :user
-		has_many :suggestionspace
+		has_many :suggestionspaces
+		has_many :orderspaces
 end
