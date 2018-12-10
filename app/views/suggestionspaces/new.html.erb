@@ -1,0 +1,5 @@
+<%= form_for @suggestionspace, url: suggestionspaces_path(coworkingspace_id: @coworkingspace.id) do |f| %>
+<%= f.date_select :beginDate, start_year: Date.current.year, end_year: Date.current.year %> <br>
+<%= f.date_select :finishDate, start_year: Date.current.year, end_year: Date.current.year %> <br>
+<%= f.submit "Ceate date" %>
+<% end %>
