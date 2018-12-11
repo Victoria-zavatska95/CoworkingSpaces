@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_10_203133) do
+ActiveRecord::Schema.define(version: 2018_12_11_155649) do
 
   create_table "coworking_spaces", force: :cascade do |t|
     t.integer "user_id"
@@ -50,11 +50,9 @@ ActiveRecord::Schema.define(version: 2018_12_10_203133) do
 
   create_table "orderspaces", force: :cascade do |t|
     t.string "coworkingspace_id"
-    t.string "integer"
     t.integer "peopleNumber"
     t.date "beginDate"
     t.date "finishDate"
-    t.float "totalSum"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
