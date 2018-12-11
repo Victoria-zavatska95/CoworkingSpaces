@@ -1,7 +1,10 @@
 <%= form_for @orderspace, url: orderspaces_path do |f| %>
-How many persons: <%= f.text_field :peopleNumber %>
+Price per a day (per person): <%= @coworkingspace.price %><br>
+How many persons: <%= f.number_field :peopleNumber, value:1, min: 1 %><br>
 <%= f.date_select :beginDate, start_year: Date.current.year, end_year: Date.current.year %> <br>
 <%= f.date_select :finishDate, start_year: Date.current.year, end_year: Date.current.year %> <br>
+<%= link_to "Calculate sum", calculate_path(coworkingspace_id: @coworkingspace.id) %><br>
+Total sum: <%= @orderspace.totalSum %><br>
 <%= f.submit "Book a coworking space" %>
 <% end %>
 
