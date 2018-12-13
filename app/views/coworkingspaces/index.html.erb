@@ -1,20 +1,20 @@
 <% if @coworkingspaces == [] %>
-  <p> Based on your parameters no coworking spaces was found. Please change your parameters for search. </p>
+  <p> Based on your parameters no coworking spaces was found. Please change your parameters for search. </p><br>
 <% else %>
   <% @coworkingspaces.each do |space| %>
-<p>Location </p>
-City <%= space.city %>
-Address <%= space.address %>
-Area in m² <%= space.area %>
-Description: <%= space.description %>
-Price: <%= space.price %>
-How many persons: <%= space.peopleNumber %>
-Do you have:
-Kitchen  <%= check_box_tag "Kitchen", space.hasKitchen %>
-Meetroom  <%= check_box_tag "Meetroom", space.hasMeetroom %>
-free WiFi  <%= check_box_tag "WiFi", space.hasFreeWiFi %>
-free coffee, tea, and cookies? <%= check_box_tag "Cookies", space.hasFreeCookies %>
-Photo: <%= image_tag(space.image_url, size: "100x100")%></p>
-<%= link_to "Read more", coworkingspace_path(space.id) %>
+<p>Location </p><br>
+City: <%= space.city %><br>
+Address: <%= space.address %><br>
+Area in m²: <%= space.area %><br>
+Description: <%= space.description %><br>
+Price: <%= space.price %><br>
+How many persons: <%= space.peopleNumber %><br>
+Do you have:<br>
+Kitchen  <%= check_box_tag 'Kitchen', 'accepted', space.hasKitchen, disabled: true %><br>
+Meetroom  <%= check_box_tag 'Meetroom', 'accepted', space.hasMeetroom, disabled: true %><br>
+free WiFi  <%= check_box_tag "WiFi", 'accepted', space.hasFreeWiFi, disabled: true %><br>
+free coffee, tea, and cookies? <%= check_box_tag "Cookies", 'accepted', space.hasFreeCookies, disabled: true %><br>
+Photo: <%= image_tag(space.image_url, size: "100x100")%></p><br>
+<%= link_to "Read more", coworkingspace_path(space.id) %><br>
 <% end %>
 <% end %>
