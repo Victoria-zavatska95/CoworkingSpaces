@@ -1,5 +1,5 @@
 class OrderspacesController < ApplicationController
-	before_action :find_order, only: [:show]
+	before_action :find_order, only: [:show, :edit, :update, :destroy]
 $coworkingspace = nil
 			
 			
@@ -32,6 +32,27 @@ $coworkingspace = nil
 	def show
 
 	end	
+
+	def edit
+
+	end	
+
+	def update
+		 if @orderspace.update(orderspaceparams)
+		 	 flash[:notice] = "Booking successfully updated"
+
+      redirect_to orderspace_path(@orderspace.id)
+  else
+  	flash[:error] = "Booking of coworking space could not be updated"
+  	render 'edit'
+  end
+	end	
+
+	def destroy
+		    @orderspace.destroy
+    redirect_to orderspaces_path
+	end	
+
 
 	private def orderspaceparams
 		params.require(:orderspace).permit(:user_id, :coworkingspace_id, :peopleNumber, :beginDate, :finishDate)

@@ -17,6 +17,10 @@
    <%= link_to "Login", new_user_session_path %>
 <% end %>
 <hr>
+ <% flash.each do |name, message| %>
+    <p><i><%= "#{name}: #{message}" %></i></p>
+  <% end %>
+
     <%= yield %>
   </body>
 </html>
