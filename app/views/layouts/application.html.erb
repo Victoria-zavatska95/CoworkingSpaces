@@ -10,17 +10,12 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-  <%= link_to "Back", root_path %> |
-  <%= link_to "Logout",  destroy_user_session_path, method: :delete %>
-<% else %>
-   <%= link_to "Login", new_user_session_path %>
-<% end %>
-<hr>
+      <%= render "layouts/header" %>
  <% flash.each do |name, message| %>
     <p><i><%= "#{name}: #{message}" %></i></p>
   <% end %>
-
     <%= yield %>
+    <hr>
+  <%= render "layouts/footer" %> 
   </body>
 </html>

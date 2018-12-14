@@ -1,21 +1,27 @@
+<% if @coworkingspace.errors.any? %>
+   <div id="error_explanation">
+     <h2><%= pluralize(@coworkingspace.errors.count, "error") %> </h2>
+  
+     <ul>
+     <% @coworkingspace.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
 <%= form_for @coworkingspace, url: coworkingspaces_path do |f| %>
-<p>Location </p>
-City <%= f.text_field :city %>
-Address <%= f.text_field :address %>
-<!-- Available data  -->
-<!-- <hr>
-<%= f.date_select :beginDate, start_year: Date.current.year, end_year: Date.current.year %> <br>
-<hr>
-<%= f.date_select :finishDate, start_year: Date.current.year, end_year: Date.current.year %> <br> -->
-Area in m² <%= f.text_field :area %>
-Description: <%= f.text_area :description, size: "60x12"  %>
-Price: <%= f.text_field :price %>
-How many persons: <%= f.text_field :peopleNumber %>
-Do you have:
-Kitchen  <%= f.check_box :hasKitchen %>
-Meetroom  <%= f.check_box :hasMeetroom %>
-free WiFi  <%= f.check_box :hasFreeWiFi %>
-free coffee, tea, and cookies? <%= f.check_box :hasFreeCookies %>
-Photo: <%= f.file_field :image %><br />
+<p>Location </p><br>
+City <%= f.text_field :city %><br>
+Address <%= f.text_field :address %><br>
+Area in m² <%= f.text_field :area %><br>
+Description: <%= f.text_area :description, size: "60x12"  %><br>
+Price: <%= f.text_field :price %><br>
+How many persons: <%= f.number_field :peopleNumber, value:1, min: 1 %><br>
+Do you have:<br>
+Kitchen  <%= f.check_box :hasKitchen %><br>
+Meetroom  <%= f.check_box :hasMeetroom %><br>
+free WiFi  <%= f.check_box :hasFreeWiFi %><br>
+free coffee, tea, and cookies? <%= f.check_box :hasFreeCookies %><br>
+Photo: <%= f.file_field :image %><br>
 <%= f.submit "Create" %>
 <% end %>
