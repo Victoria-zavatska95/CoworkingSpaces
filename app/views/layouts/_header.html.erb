@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+  <%= link_to "Back", root_path %> |
+  <%= link_to "Logout",  destroy_user_session_path, method: :delete %> |
+  <% if current_user.userparam.nil? %>
+  <%= link_to "Profile", new_userparam_path %> |
+  <% else %>
+  <%= link_to "Profile", userparam_path(current_user.id) %> |
+  <% end %>
+<% else %>
+   <%= link_to "Login", new_user_session_path %> |
+<% end %>
+<%= link_to "My Orders", orderspaces_path %> |
+<%= link_to "My Coworking Spaces", coworkingspaces_path %> 
+<hr>

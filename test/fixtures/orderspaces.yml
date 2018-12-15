@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  coworkingspace_id: MyString
+  integer: MyString
+  peopleNumber: 1
+  beginDate: 2018-12-10
+  finishDate: 2018-12-10
+  totalSum: 1.5
+  user_id: 1
+
+two:
+  coworkingspace_id: MyString
+  integer: MyString
+  peopleNumber: 1
+  beginDate: 2018-12-10
+  finishDate: 2018-12-10
+  totalSum: 1.5
+  user_id: 1
