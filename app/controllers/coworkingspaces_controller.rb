@@ -3,6 +3,10 @@ before_action :authenticate_user!
 before_action :find_space, only: [:show]
     
     def index
+    	@coworkingspaces = Coworkingspace.all
+    end
+
+    def filtered_spaces
     	if !params[:city].blank? && !params[:beginDate].blank? && !params[:finishDate].blank?
     		@coworkingspaces = Coworkingspace.where(city: params[:city])
     		array_of_valid_spaces = []

@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
       has_many :coworkingspaces 
-      has_many :orderspaces  
+      has_many :orderspaces
+      has_one :userparam  
 end
