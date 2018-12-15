@@ -2,8 +2,7 @@
   <p> Based on your parameters no coworking spaces was found. Please change your parameters for search. </p><br>
 <% else %>
   <% @coworkingspaces.each do |space| %>
-<p>Location </p><br>
-City: <%= space.city %><br>
+<p>City: <%= space.city %><br>
 Address: <%= space.address %><br>
 Area in m²: <%= space.area %><br>
 Description: <%= space.description %><br>
@@ -15,6 +14,6 @@ Meetroom  <%= check_box_tag 'Meetroom', 'accepted', space.hasMeetroom, disabled:
 free WiFi  <%= check_box_tag "WiFi", 'accepted', space.hasFreeWiFi, disabled: true %><br>
 free coffee, tea, and cookies? <%= check_box_tag "Cookies", 'accepted', space.hasFreeCookies, disabled: true %><br>
 Photo: <%= image_tag(space.image_url, size: "100x100")%></p><br>
-<%= link_to "Read more", coworkingspace_path(space.id) %><br>
+<%= link_to "Read more", coworkingspace_path(space.id) %><br></p>
 <% end %>
 <% end %>

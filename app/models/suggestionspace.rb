@@ -1,6 +1,7 @@
 class Suggestionspace < ApplicationRecord
 	belongs_to :coworkingspace
 	validate :date_is_new
+	validate :date_is_not_past
 
 		def date_is_new
 			@coworkingspace = Coworkingspace.find(coworkingspace_id)
@@ -16,4 +17,12 @@ class Suggestionspace < ApplicationRecord
 			throw(:abort)
 		end
 		end	
+
+		def date_is_not_past
+			@coworkingspace = Coworkingspace.find(coworkingspace_id)
+			if beginDate < Date.today || finishDate < Date.today
+				errors.add(:beginDate, 'Such date is past')
+			throw(:abort)
+		end
+	end	
 end

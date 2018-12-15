@@ -21,7 +21,6 @@ before_action :authenticate_user!
   
   def edit
     @userparam = current_user.userparam
-    binding.pry
   end
   
   def update
@@ -38,7 +37,7 @@ before_action :authenticate_user!
 private
 
   def profile_params
-    params.require(:userparam).permit(:user_id, :firstname, :lastname, :hometown, :occupation, :age)
+    params.require(:userparam).permit(:user_id, :firstname, :lastname, :hometown, :occupation, :age, :avatar)
   end
   
 end

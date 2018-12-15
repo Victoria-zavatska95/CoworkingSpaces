@@ -3,13 +3,12 @@ You have no coworking spaces yet
 <% else %>
 <% @coworkingspaces.each do |space| %>
 <% if current_user.id == space.user_id %>
-<p>Location </p><br>
-City: <%= space.city %><br>
+<p>City: <%= space.city %><br>
 Address: <%= space.address %><br>
 Area in m²: <%= space.area %><br>
 Description: <%= space.description %><br>
-Photo: <%= image_tag(space.image_url, size: "100x100")%></p><br>
-<%= link_to "Read more", coworkingspace_path(space.id) %><br>
+Photo: <%= image_tag(space.image_url, size: "100x100")%><br>
+<%= link_to "Read more", coworkingspace_path(space.id) %><br></p>
 <% end %>
 <% end %>
 <% end %>

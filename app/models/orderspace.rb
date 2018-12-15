@@ -8,15 +8,18 @@ class Orderspace < ApplicationRecord
 		peopleTaken = 0
 		coworkingspace.orderspaces.each do |order|
 			if 	!(beginDate > order.finishDate || finishDate < order.beginDate)
-		peopleTaken += order.peopleNumber
-	end
+				if id != order.id {
+					peopleTaken += order.peopleNumber
+				}
+			end
+		end
 	end
 	peopleAvailable = coworkingspace.peopleNumber - peopleTaken
 	
 	if peopleTaken + peopleNumber > coworkingspace.peopleNumber
 		errors.add(:peopleNumber, 'You cannot to book this cowoking place for #{peopleNumber} people. This space is available only for #{peopleAvailable} more people')
 			throw(:abort)
-	else
-	end
+		else
+		end
 	end	
 end

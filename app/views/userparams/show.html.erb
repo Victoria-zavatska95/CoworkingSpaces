@@ -3,4 +3,5 @@
   Age: <%= @userparam.age %><br />
   Hometown: <%= @userparam.hometown %><br />
   Occupation: <%= @userparam.occupation %><br />
+  <%= image_tag @userparam.avatar.url(:small) %></p>
   <%= link_to "Edit profile", edit_userparam_path(@userparam.id) %>
