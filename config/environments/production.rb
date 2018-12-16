@@ -32,17 +32,21 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'https://coworkingspace.herokuapp.com'}
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default_options = { from: 'viktoriacoworkingspace@gmail.com' }
+  # devise
   
   config.action_mailer.smtp_settings = {
     user_name:      'CoworkingSpace',
     password:       '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',
-    domain:         'sendgrid.net',
+    domain:         'heroku.com',
     address:       'smtp.sendgrid.net',
-    port:          '587',
+    port:          '25',
     authentication: :plain,
     enable_starttls_auto: true
   }
     config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.perform_caching = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
