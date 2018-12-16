@@ -37,11 +37,11 @@ Rails.application.configure do
   # devise
   
   config.action_mailer.smtp_settings = {
-    user_name:      'CoworkingSpace',
+    user_name:      'viktoriacoworkingspace',
     password:       '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',
     domain:         'heroku.com',
     address:       'smtp.sendgrid.net',
-    port:          '25',
+    port:          '587',
     authentication: :plain,
     enable_starttls_auto: true
   }
