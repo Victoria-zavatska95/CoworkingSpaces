@@ -1,4 +1,5 @@
 class OrderspacesController < ApplicationController
+	before_action :authenticate_user!
 	before_action :find_order, only: [:show, :edit, :update, :destroy]
 $coworkingspace = nil
 			

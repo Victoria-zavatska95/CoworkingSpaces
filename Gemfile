@@ -74,6 +74,8 @@ end
 
 group :production do
   gem 'pg'
+  #For static asset serving and logging on Heroku
+  gem 'rails_12factor'
   end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
