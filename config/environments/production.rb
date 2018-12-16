@@ -27,6 +27,8 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
+  config.logger = Logger.new(STDOUT)
+  config.logger.level = Logger::DEBUG
   config.assets.compile = true
 
   config.action_mailer.perform_deliveries = true
@@ -39,7 +41,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name:      'viktoriacoworkingspace',
     password:       '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',
-    domain:         'heroku.com',
+    domain:         'herokuapp.com',
     address:       'smtp.sendgrid.net',
     port:          '587',
     authentication: :plain,
