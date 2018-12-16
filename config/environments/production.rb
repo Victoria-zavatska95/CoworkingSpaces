@@ -39,7 +39,7 @@ Rails.application.configure do
   # devise
   
   config.action_mailer.smtp_settings = {
-    user_name:      'viktoriacoworkingspace',
+    user_name:      'viktoriacoworking',
     password:       'spaceruby1',
     domain:         'coworkingspace.herokuapp.com',
     address:       'smtp.sendgrid.net',
