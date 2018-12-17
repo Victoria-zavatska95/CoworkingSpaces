@@ -1,6 +1,6 @@
 <% if @userparam.errors.any? %>
    <div id="error_explanation">
-     <h2><%= pluralize(@orderspace.errors.count, "error") %> </h2>
+     <h2><%= pluralize(@userparam.errors.count, "error") %> </h2>
   
      <ul>
      <% @userparam.errors.full_messages.each do |msg| %>
