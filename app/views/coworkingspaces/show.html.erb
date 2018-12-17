@@ -12,7 +12,7 @@ free coffee, tea, and cookies? <%= check_box_tag "Cookies", 'accepted', @coworki
 Photo: <%= image_tag(@coworkingspace.image_url, size: "200x200")%><br>
 <% @coworkingspace.suggestionspaces.each do |suggestion| %><br>
 <p>Begin date <%= suggestion.beginDate %><br>
-Finish date <%= suggestion.finishDate %></p><br><hr>
+Finish date <%= suggestion.finishDate %><br><hr>
  <% end %>
  <% if current_user.id == @coworkingspace.user_id %>
 <%= link_to "Add available date", new_suggestionspace_path(coworkingspace_id: @coworkingspace.id)%><br>
@@ -24,7 +24,7 @@ Lastname: <%= @coworkingspace.user.userparam.lastname %><br>
 Age: <%= @coworkingspace.user.userparam.age %><br>
 Hometown: <%= @coworkingspace.user.userparam.hometown %><br>
 Occupation: <%= @coworkingspace.user.userparam.occupation %><br>
-<%= image_tag @coworkingspace.user.userparam.avatar.url(:small) %>
+<%= image_tag @coworkingspace.user.userparam.avatar.url(:thumb) %>
 <% end %>
-<%= link_to "Order", new_orderspace_path(coworkingspace_id: @coworkingspace.id)%>
+<p><%= link_to "Order", new_orderspace_path(coworkingspace_id: @coworkingspace.id)%>
 <% end %>

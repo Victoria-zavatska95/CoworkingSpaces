@@ -27,22 +27,28 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
+  config.logger = Logger.new(STDOUT)
+  config.logger.level = Logger::DEBUG
   config.assets.compile = true
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'https://coworkingspace.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'coworkingspace.herokuapp.com', :protocol => 'https'}
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default_options = { from: 'viktoriacoworkingspace@gmail.com' }
+  # devise
   
   config.action_mailer.smtp_settings = {
-    user_name:      'CoworkingSpace',
-    password:       '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',
-    domain:         'sendgrid.net',
+    user_name:      'viktoriacoworking',
+    password:       'spaceruby1',
+    domain:         'coworkingspace.herokuapp.com',
     address:       'smtp.sendgrid.net',
     port:          '587',
     authentication: :plain,
     enable_starttls_auto: true
   }
     config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.perform_caching = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 

@@ -1,6 +1,8 @@
 class AddConfirmableToUsers < ActiveRecord::Migration[5.2]
   def change
+
   	change_table(:users) do |t|
+  		
        # Confirmable
        t.string   :confirmation_token
        t.datetime :confirmed_at
@@ -8,5 +10,6 @@ class AddConfirmableToUsers < ActiveRecord::Migration[5.2]
        t.string   :unconfirmed_email # Only if using reconfirmable
      end
      add_index  :users, :confirmation_token, :unique => true 
-  end
+
+end
 end
