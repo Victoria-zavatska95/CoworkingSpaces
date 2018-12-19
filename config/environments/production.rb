@@ -10,6 +10,7 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -30,6 +31,7 @@ Rails.application.configure do
   config.logger = Logger.new(STDOUT)
   config.logger.level = Logger::DEBUG
   config.assets.compile = true
+  config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif] 
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
