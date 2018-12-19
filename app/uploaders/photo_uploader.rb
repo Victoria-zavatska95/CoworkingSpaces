@@ -14,10 +14,6 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
 
-version :small do
-    process resize_to_fill: [100,100]
-  end
-
   def default_url(*args)
     "/assets/placeholder:small.png" 
     binding.pry
