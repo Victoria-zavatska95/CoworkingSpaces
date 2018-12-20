@@ -48,6 +48,7 @@ before_action :find_space, only: [:show]
 
 	end	
 
+
 	private def coworkingspacesparams
 		params.require(:coworkingspace).permit(:user_id, :image, :price, :area, :description, :city, :address, :hasKitchen, :hasMeetroom, :hasFreeWiFi, :hasFreeCookies, :peopleNumber)
     end
