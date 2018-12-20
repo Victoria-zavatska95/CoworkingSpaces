@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  coworkingspace_id: 1
   user_id: 1
+  coworkingspace_id: 1
   message: MyString
+  created_datetime: 2018-12-20 22:10:46
 
 two:
-  coworkingspace_id: 1
   user_id: 1
+  coworkingspace_id: 1
   message: MyString
+  created_datetime: 2018-12-20 22:10:46

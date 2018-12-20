@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :coworkingspaces
   resources :suggestionspaces
   resources :orderspaces
-  get "/coworkingspaces/filtered_spaces/:city/:beginDate/:finishDate", to: "coworkingspaces#filtered_spaces", as: :filtered_spaces
+  get "/coworkingspaces/filtered_spaces/:id", to: "coworkingspaces#filtered_spaces", as: :filtered_spaces
   resources :userparams
   resources :comments
 

@@ -7,27 +7,38 @@ before_action :find_space, only: [:show]
     end
 
     def filtered_spaces
-    	if !params[:city].blank? && !params[:beginDate].blank? && !params[:finishDate].blank?
-    		@coworkingspaces = Coworkingspace.where(city: params[:city])
+    	@filter = Coworkingfilter.find(params[:id])
+    	if !@filter.city.blank? && !@filter.beginDate.blank? && !@filter.finishDate.blank?
+    		@coworkingspaces = Coworkingspace.where(city: @filter.city)
     		array_of_valid_spaces = []
     			 @coworkingspaces.map do |space|
     			 	# binding.pry
     				space.suggestionspaces.each do |suggestion|
-			  if Date.parse(params[:beginDate]) >= suggestion.beginDate && Date.parse(params[:finishDate]) <= suggestion.finishDate
+			  if @filter.beginDate >= suggestion.beginDate && @filter.finishDate <= suggestion.finishDate
 				 array_of_valid_spaces.push(space)
 			      end
 				   end
 				end
 		     # if array_of_valid_spaces.any?
 			   @coworkingspaces = array_of_valid_spaces
-    	     # else 
-    	     #   @coworkingspaces = []	
-    	     # end	
-					
-
-
+			    @coworkingspaces.each do |coworkingspace|
+		peopleTaken = 0
+		coworkingspace.orderspaces.each do |order|
+			if 	!(@filter.beginDate > order.finishDate || @filter.finishDate < order.beginDate)
+					peopleTaken += order.peopleNumber
+			end
 		end
-    end
+	
+	peopleAvailable = coworkingspace.peopleNumber - peopleTaken
+	
+	if peopleAvailable = 0
+		coworkingspace.isbooked = true
+		end
+	 
+	end	
+		end
+	end
+
 
 	def new
 		@coworkingspace = Coworkingspace.new

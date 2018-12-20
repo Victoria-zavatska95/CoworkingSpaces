@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_20_070955) do
+ActiveRecord::Schema.define(version: 2018_12_20_215251) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -39,14 +39,13 @@ ActiveRecord::Schema.define(version: 2018_12_20_070955) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "coworkingspace_id"
     t.integer "user_id"
+    t.integer "coworkingspace_id"
     t.string "message"
+    t.datetime "created_datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
-    t.date "created_date"
-    t.datetime "created_datetime"
   end
 
   create_table "coworking_spaces", force: :cascade do |t|
@@ -56,6 +55,8 @@ ActiveRecord::Schema.define(version: 2018_12_20_070955) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_booked"
+    t.boolean "has_booked", default: true
   end
 
   create_table "coworkingfilters", force: :cascade do |t|
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 2018_12_20_070955) do
     t.integer "peopleNumber"
     t.float "area"
     t.string "image"
+    t.boolean "isbooked", default: false
   end
 
   create_table "orderspaces", force: :cascade do |t|
