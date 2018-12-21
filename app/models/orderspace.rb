@@ -22,10 +22,6 @@ class Orderspace < ApplicationRecord
 		errors.add(:peopleNumber, "You cannot to book this cowoking place for #{peopleNumber} people. This space is available only for #{peopleAvailable} more people")
 			throw(:abort)
 		else
-		if peopleAvailable == peopleNumber 
-			binding.pry
-		coworkingspace.isbooked = true
-	end	
 		end
 	 
 	end	

@@ -8,6 +8,10 @@ Address: <%= space.address %><br>
 Area in m²: <%= space.area %><br>
 Description: <%= space.description %><br>
 Photo: <%= image_tag(space.image_url, size: "100x100")%><br>
+		if peopleAvailable == peopleNumber 
+			binding.pry
+		coworkingspace.isbooked = true
+	end	
 <%= link_to "Read more", coworkingspace_path(space.id) %><br></p>
 <% end %>
 <% end %>
