@@ -39,6 +39,7 @@ config.read_encrypted_secrets = true
   config.action_mailer.default_url_options = { host: 'coworkingspace.herokuapp.com', :protocol => 'https'}
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.default_options = { from: 'viktoriacoworkingspace@gmail.com' }
+  config.action_mailer.smtp_settings = get_smtp_setting.symbolize_keys
   # devise
   
 
