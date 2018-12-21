@@ -15,7 +15,7 @@ class User < ApplicationRecord
       	      if Rails.env.development?
       	false
       else
-        true
+        false
       end
   end
 end

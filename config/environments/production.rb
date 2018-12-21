@@ -42,8 +42,8 @@ config.read_encrypted_secrets = true
   # devise
   
  config.action_mailer.smtp_settings = {
-    user_name:      'balogh.sandor0213@gmail.com',
-    password:       'spaceruby1',
+    user_name:      'viktoriacoworkingspace@gmail.com',
+    password:       'spaceruby',
     domain:         'smtp.sendgrid.com',
     port:          '587',
     authentication: :plain,
