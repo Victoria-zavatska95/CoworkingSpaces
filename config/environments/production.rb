@@ -41,11 +41,11 @@ config.read_encrypted_secrets = true
   config.action_mailer.default_options = { from: 'viktoriacoworkingspace@gmail.com' }
   # devise
   
+
   config.action_mailer.smtp_settings = {
-    user_name:      Rails.application.secrets.sendgrid_username,
-    password:       Rails.application.secrets.sendgrid_password,
-    domain:         'coworkingspace.herokuapp.com',
-    address:       'smtp.sendgrid.net',
+    user_name:      'viktoriacoworkingspace@gmail.com',
+    password:       'spaceruby',
+    domain:         'gmail.com',
     port:          '587',
     authentication: :plain,
     enable_starttls_auto: true
