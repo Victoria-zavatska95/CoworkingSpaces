@@ -46,7 +46,7 @@ config.read_encrypted_secrets = true
     user_name:      'viktoriacoworkingspace@gmail.com',
     password:       'spaceruby',
     domain:         'gmail.com',
-    port:          '587',
+    port:           '25',
     authentication: :plain,
     enable_starttls_auto: true
   }
