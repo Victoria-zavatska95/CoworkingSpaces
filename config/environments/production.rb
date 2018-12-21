@@ -44,7 +44,7 @@ config.read_encrypted_secrets = true
  config.action_mailer.smtp_settings = {
     user_name:      'balogh.sandor0213@gmail.com',
     password:       'spaceruby1',
-    domain:         'smtp.gmail.com',
+    domain:         'smtp.sendgrid.com',
     port:          '587',
     authentication: :plain,
     enable_starttls_auto: true
