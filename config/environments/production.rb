@@ -33,6 +33,7 @@ Rails.application.configure do
   config.assets.compile = true
   config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif] 
 
+config.read_encrypted_secrets = true 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'coworkingspace.herokuapp.com', :protocol => 'https'}
