@@ -14,14 +14,12 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
 
-version :small do
-    process resize_to_fill: [100,100]
-  end
+  # def default_url(*args)
+  #   "/images/placeholder/small.png" 
+  #   binding.pry
+  # end
 
-  def default_url(*args)
-    "/assets/placeholder:small.png" 
-    binding.pry
-  end
+  
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:

@@ -6,5 +6,6 @@ class Coworkingspace < ApplicationRecord
 		validates :city, :address, :area, :description, :price, :peopleNumber, :image, presence: true
 		validates :area, :numericality => true
 		validates :price, :numericality => true
+		has_many :comments
 		
 end

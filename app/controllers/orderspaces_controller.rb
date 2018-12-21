@@ -3,10 +3,14 @@ class OrderspacesController < ApplicationController
 	before_action :find_order, only: [:show, :edit, :update, :destroy]
 $coworkingspace = nil
 			
-			
+	def index
+			@orderspaces = Orderspace.all
+			 # binding.pry
+	end	
+
 	def new
 			$coworkingspace = Coworkingspace.find(params[:coworkingspace_id])
-				# binding.pry
+				
 		@orderspace = Orderspace.new
 	
 		# params[:order_space][:coworkingspace_id] = @coworkingspace.id

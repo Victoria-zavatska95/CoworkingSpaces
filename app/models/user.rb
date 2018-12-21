@@ -7,14 +7,15 @@ class User < ApplicationRecord
 
       has_many :coworkingspaces 
       has_many :orderspaces
-      has_one :userparam  
+      has_one :userparam   
+      has_many :comments
 
       protected
       def confirmation_required?
       	      if Rails.env.development?
       	false
       else
-        true
+        false
       end
   end
 end

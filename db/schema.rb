@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_134749) do
+ActiveRecord::Schema.define(version: 2018_12_21_044936) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2018_12_16_134749) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "coworkingspace_id"
+    t.string "message"
+    t.datetime "created_datetime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+  end
+
   create_table "coworking_spaces", force: :cascade do |t|
     t.integer "user_id"
     t.float "price"
@@ -45,6 +55,8 @@ ActiveRecord::Schema.define(version: 2018_12_16_134749) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_booked"
+    t.boolean "has_booked", default: true
   end
 
   create_table "coworkingfilters", force: :cascade do |t|
@@ -72,6 +84,7 @@ ActiveRecord::Schema.define(version: 2018_12_16_134749) do
     t.integer "peopleNumber"
     t.float "area"
     t.string "image"
+    t.boolean "isbooked", default: false
   end
 
   create_table "orderspaces", force: :cascade do |t|
