@@ -2,6 +2,7 @@ class Suggestionspace < ApplicationRecord
 	belongs_to :coworkingspace
 	validate :date_is_new
 	validate :date_is_not_past
+	validate :date_consistency
 
 		def date_is_new
 			@coworkingspace = Coworkingspace.find(coworkingspace_id)
@@ -23,6 +24,13 @@ class Suggestionspace < ApplicationRecord
 			if beginDate < Date.today || finishDate < Date.today
 				errors.add(:beginDate, 'Such date is past')
 			throw(:abort)
-		end
+		    end
+	    end	
+
+	    def date_consistency
+			if beginDate > finishDate
+			errors.add(:beginDate, 'Begin date should be less or equal to finish date')
+			throw(:abort)	
+		end	
 	end	
 end
