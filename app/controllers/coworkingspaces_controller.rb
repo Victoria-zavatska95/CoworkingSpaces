@@ -12,7 +12,6 @@ before_action :find_space, only: [:show]
     		@coworkingspaces = Coworkingspace.where(city: @filter.city)
     		array_of_valid_spaces = []
     			 @coworkingspaces.map do |space|
-    			 	# binding.pry
     				space.suggestionspaces.each do |suggestion|
 			  if @filter.beginDate >= suggestion.beginDate && @filter.finishDate <= suggestion.finishDate
 				 array_of_valid_spaces.push(space)
@@ -31,7 +30,7 @@ before_action :find_space, only: [:show]
 	
 	peopleAvailable = coworkingspace.peopleNumber - peopleTaken
 	
-	if peopleAvailable = 0
+	    if peopleAvailable == 0
 		coworkingspace.isbooked = true
 		end
 	 
