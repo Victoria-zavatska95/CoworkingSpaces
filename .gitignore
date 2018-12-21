@@ -34,3 +34,4 @@
 /config/application.yml
 #Ignore doc files
 /doc
+config/secrets.yml

@@ -41,8 +41,8 @@ Rails.application.configure do
   # devise
   
   config.action_mailer.smtp_settings = {
-    user_name:      'viktoriacoworking',
-    password:       'spaceruby1',
+    user_name:      Rails.application.secrets.sendgrid_username,
+    password:       Rails.application.secrets.sendgrid_password,
     domain:         'coworkingspace.herokuapp.com',
     address:       'smtp.sendgrid.net',
     port:          '587',
