@@ -45,8 +45,8 @@ config.read_encrypted_secrets = true
   config.action_mailer.smtp_settings = {
     user_name:      'viktoriacoworkingspace@gmail.com',
     password:       'spaceruby',
-    domain:         'gmail.com',
-    port:           '25',
+    domain:         'smtp.gmail.com',
+    port:           '587',
     authentication: :plain,
     enable_starttls_auto: true
   }
